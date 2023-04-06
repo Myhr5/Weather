@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      h1 {
+        color: #1a64d6;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 34px;
+        margin: 0;
+        line-height: 48px;
+      }
+
+      h2 {
+        text-align: center;
+        margin: 0 auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 33px;
+        font-weight: normal;
+        line-height: 48px;
+      }
+
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      ul {
+        padding: 0;
+        text-align: center;
+      }
+
+      li {
+        padding: 10px 0;
+        margin: 0 auto;
+        list-style: none;
+        text-align: center;
+        max-width: 400px;
+      }
+
+      li:hover {
+        background-color: #fffbef;
+        border-radius: 10px;
+        transition: all 200ms ease-in-out;
+      }
+
+      p {
+        font-size: 18px;
+        opacity: 0.8;
+        text-align: center;
+        font-family: monospace;
+      }
+
+      .tempMin {
+        font-weight: 100;
+      }
+
+      .tempMax {
+        font-weight: 700;
+      }
+
+      button {
+        background-color: #1a64d6;
+        display: block;
+        margin: 0 auto;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 15px;
+        padding: 16px 24px;
+        border-radius: 40px;
+        box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+        transition: all 200ms ease;
+        border: 1px solid #1a64d6;
+      }
+      button:hover {
+        color: #1a64d6;
+        background: transparent;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>
+        <span class="emoji">&#x1F325;</span>
+        <br />
+        Atualmente <span class="temperatura">29</span>° em
+        <span class="cidade">Caucaia</span>
+      </h1>
+      <h2>
+        <span class="tempMin">24°</span> / <span class="tempMax">29°</span>
+      </h2>
+      <ul>
+        <li>
+          <h3>&#x1F324; Amanhã</h3>
+          <p>
+            <span class="tempMin">24°</span> / <span class="tempMax">30°</span>
+          </p>
+        </li>
+        <li>
+          <h3>&#x1F325; Sexta-feira</h3>
+          <p>
+            <span class="tempMin">24°</span> / <span class="tempMax">30°</span>
+          </p>
+        </li>
+        <li>
+          <h3>&#x1F324; Sábado</h3>
+          <p>
+            <span class="tempMin">24°</span> / <span class="tempMax">28°</span>
+          </p>
+        </li>
+      </ul>
+      <button>Mudar Cidade</button>
+      <p>Coded by Mirele Fernandes</p>
+    </section>
+    <script>
+      function heading(resposta, classe) {
+        let novo = document.querySelector(classe);
+        novo.innerHTML = resposta;
+      }
+
+      function quente() {
+        let temp = prompt("Qual a temperatura atual?");
+        heading(temp, ".temperatura");
+        return temp >= 0;
+      }
+
+      function changeCity() {
+        let city = prompt("Em que cidade você mora?");
+
+        heading(city, ".cidade");
+
+        if (quente()) {
+          heading("&#x1F917", ".emoji");
+        } else {
+          heading("&#x1F976", ".emoji");
+        }
+      }
+
+      let changeButton = document.querySelector("button");
+      changeButton.addEventListener("click", changeCity);
+    </script>
+  </body>
+</html>
